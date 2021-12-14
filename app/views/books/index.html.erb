@@ -55,8 +55,8 @@
         <td><a data-confirm="Are you sure?" class="destroy_39631" rel="nofollow" data-method="delete" href="/books/39631">Destroy</a></td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
+        <td>test</td>
+        <td>test</td>
         <td><a class="show_39632" href="/books/39632">Show</a></td>
         <td><a class="edit_39632" href="/books/39632/edit">Edit</a></td>
         <td><a data-confirm="Are you sure?" class="destroy_39632" rel="nofollow" data-method="delete" href="/books/39632">Destroy</a></td>
@@ -70,9 +70,9 @@
 <%= form_with model:@book, local:true do |f| %>
 
 <h5>title</h5>
-  <%= f.text_field :title %>
+  <div><%= f.text_field :title %></div>
 <h5>body</h5>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
+  <div><%= f.text_area :body %></div>
+  <div><%= f.submit 'Create Book' %></div>
 
   <% end %>

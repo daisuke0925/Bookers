@@ -1,4 +1,8 @@
-<p id="notice"></p>
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
 
 <h1>Books</h1>
 
@@ -12,55 +16,19 @@
   </thead>
 
   <tbody>
+     <% @books.each do |book| %>
+
       <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39626" href="/books/39626">Show</a></td>
-        <td><a class="edit_39626" href="/books/39626/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39626" rel="nofollow" data-method="delete" href="/books/39626">Destroy</a></td>
+        <td><%= link_to book.title, new_book_path(book) %></td>
+        <td><%= link_to book.body, books_path(book) %></td>
+        <td><%= link_to "show", book_path(book.id) %></td>
+        <td><%= link_to "edit", edit_book_path(book.id) %></td>
+
+        <td><%= link_to "destroy", book_path(book.id), method: :delete  %></td>
       </tr>
       <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39627" href="/books/39627">Show</a></td>
-        <td><a class="edit_39627" href="/books/39627/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39627" rel="nofollow" data-method="delete" href="/books/39627">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39628" href="/books/39628">Show</a></td>
-        <td><a class="edit_39628" href="/books/39628/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39628" rel="nofollow" data-method="delete" href="/books/39628">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39629" href="/books/39629">Show</a></td>
-        <td><a class="edit_39629" href="/books/39629/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39629" rel="nofollow" data-method="delete" href="/books/39629">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39630" href="/books/39630">Show</a></td>
-        <td><a class="edit_39630" href="/books/39630/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39630" rel="nofollow" data-method="delete" href="/books/39630">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39631" href="/books/39631">Show</a></td>
-        <td><a class="edit_39631" href="/books/39631/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39631" rel="nofollow" data-method="delete" href="/books/39631">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td><a class="show_39632" href="/books/39632">Show</a></td>
-        <td><a class="edit_39632" href="/books/39632/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_39632" rel="nofollow" data-method="delete" href="/books/39632">Destroy</a></td>
-      </tr>
+    <% end %>
+
   </tbody>
 </table>
 
